@@ -1,12 +1,36 @@
 version: '3'
 
 services:
-  clickhouse_server:
-    image: clickhouse/clickhouse-server:latest
-    ports:
-      - "8123:8123"
-    volumes:
-      - db:/data/db
+    clickhouse-server:
+        image: clickhouse/clickhouse-server:latest
+        ports:
+            - '8123:8123'
+        networks:
+            - swift-network
+        
+    swift-cloud:
+        container_name: swift-cloud
+        image: swift-cloud:1.0.0
+        ports:
+            - '3000:3000'
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: development
+        volumes:
+            - ./:/usr/src/app
+            - /usr/src/app/node_modules
+        depends_on:
+            - clickhouse-server
+        command: npm run dev
+        environment:
+            NODE_ENV: development
+            DB_HOST: http://clickhouse-server:8123
+        networks:
+            - swift-network
 
 volumes:
-  db:
+    db:
+
+networks:
+    swift-network:

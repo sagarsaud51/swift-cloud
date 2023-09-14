@@ -1,55 +1,58 @@
 /**
- *  @openapi
- *components:
- *  schemas:
- *    SongResponse:
- *      type: object
- *      required:
- *        - title
- *        - description
- *        - price
- *        - image
- *      properties:
- *        title:
- *          type: string
- *          default: Canon EOS 1500D DSLR Camera with 18-55mm Lens
- *        description:
- *          type: string
- *          default: Designed for first-time DSLR owners who want impressive results
- *            straight out of the box, capture those magic moments no matter your
- *            level with the EOS 1500D. With easy to use automatic shooting modes,
- *            large 24.1 MP sensor, Canon Camera Connect app integration and
- *            built-in feature guide, EOS 1500D is always ready to go.
- *        price:
- *          type: number
- *          default: 879.99
- *        image:
- *          type: string
- *          default: https://i.imgur.com/QlRphfQ.jpg
- *    productResponse:
- *      type: object
- *      properties:
- *        user:
- *          type: string
- *        _id:
- *          type: string
- *        title:
- *          type: string
- *        description:
- *          type: string
- *        price:
- *          type: number
- *        image:
- *          type: string
- *        productId:
- *          type: string
- *        createdAt:
- *          type: string
- *        updatedAt:
- *          type: string
- *        __v:
- *          type: number
- *
+ * @swagger
+ * description: API to manage your books.
+ * components:
+ *   schemas:
+ *     SongResponse:
+ *       type: object
+ *       required:
+ *          - id
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: Auto generated id for song
+ *         song:
+ *           type: string
+ *           description: title of the songs
+ *         artist:
+ *           type: array
+ *           items:
+ *              type: string
+ *           description: List of artists on the song
+ *         writer:
+ *           type: array
+ *           items:
+ *              type: string
+ *           description: List of writer on the song
+ *         album:
+ *           type: string
+ *           description: Name of the album
+ *         year:
+ *           type: string
+ *           description: Year the song/album was released
+ *         june:
+ *           type: number
+ *           description: total count of plays on June month
+ *         july:
+ *           type: number
+ *           description: total count of plays on july month
+ *         august:
+ *           type: number
+ *           description: total count of plays on august month
+ *         total:
+ *           type: number
+ *           description: total count of plays till date
+ *       example:
+ *         id: 2f12bacf-3aec-4dfc-8071-58aa50835a63
+ *         song: Santa Baby (cover)
+ *         artist: [Taylor Swift]
+ *         writer: [Taylor Swift]
+ *         album: Sounds of the Season
+ *         year: 2007
+ *         june: 110
+ *         july: 52
+ *         august: 0
+ *         total: 162
  */
 
 export interface SongEntity {

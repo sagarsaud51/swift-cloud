@@ -5,19 +5,51 @@ import { idValidator } from '../middleware/id-validator.middleware';
 const SongRouter: Router = Router();
 
 /**
- * @openapi
- * /api/v1/songs:
+ * @swagger
+ * components:
+ *   schemas:
+ *     ErrorResponse:
+ *       type: object
+ *       properties:
+ *         error:
+ *           type: string
+ *           description: Eror Message
+ *         message:
+ *           type: string
+ *           description: Error Extra message
+ *       example:
+ *          error: Something went wrong
+ *          message: Internal Server Error
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Songs
+ *   description: SWFITY MELLO
+ */
+
+/**
+ * @swagger
+ *  /api/v1/songs:
  *  get:
- *      tag:
- *          - Songs-Collection
- *      summary: Gets all the songs
+ *      tags: [Songs]
+ *      summary: Gets all song with filter
  *      responses:
  *          200:
- *              description: List of SWIFT songs
+ *              description: Success
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/SongResponse'
+ *                          type: array
+ *                          items:
+ *                              $ref: '#/components/schemas/SongResponse'
+ *          500:
+ *              description: Internal Server Error
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '$components/schemas/ErrorResponse'
  *      parameters:
  *          - in: query
  *            name: id
@@ -68,24 +100,29 @@ SongRouter.get('/', getSongs);
  * @openapi
  * /api/v1/songs/song/{id}:
  *  get:
- *      tag:
- *          - Songs-Collection
+ *      tags: [Songs]
  *      summary: Gets song by ID
- *      responses:
- *          200:
- *              description: List of SWIFT songs
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref: '#/components/schemas/SongResponse'
  *      parameters:
  *          - in: path
  *            name: id
  *            schema:
- *              type: UUID
+ *              type: string
  *            description: Song ID
- *            required: false
+ *            required: true
  *            example: 2cd0d371-79c8-4c84-abb3-6d3f58052662
+ *      responses:
+ *          200:
+ *              description: Success
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/SongResponse'
+ *          500:
+ *              description: Internal Server Error
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '$components/schemas/ErrorResponse'
  */
 SongRouter.get('/song/:id', idValidator, getSongById);
 

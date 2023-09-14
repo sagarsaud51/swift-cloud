@@ -6,32 +6,29 @@ import { ServerContext } from './context';
 import { router } from './modules/routes';
 import bodyParser from 'body-parser';
 import { createClient } from '@clickhouse/client';
-import swaggerUi from 'swagger-ui-express';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const swaggerDoc = require('../../swagger.json');
+import morgan from 'morgan';
+import { initSwagger } from './modules/util/swagger.util';
 
 const app: Express = express();
 app.use(cors());
-// app.use(morgan('tiny'));
+app.use(morgan('tiny'));
 app.use(bodyParser.json());
 export const logger = pino({
     level: config.environment === 'Development' ? 'trace' : 'info',
 });
 
-const dbClient = createClient();
+//db connection
+const dbClient = createClient({ host: config.dbHost });
 
 app.use((req, res, next) => {
     req.context = { logger, db: dbClient } as ServerContext;
     next();
 });
 
+// router init
 app.use(`/api/v1`, router);
 
-const option = {
-    explorer: true,
-};
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc, { ...option }));
+//swagger init
+initSwagger(app);
 
 export default app;

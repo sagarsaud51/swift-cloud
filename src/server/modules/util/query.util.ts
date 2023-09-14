@@ -5,6 +5,9 @@ const SORT_COLUMNS = ['id', 'song', 'artist', 'writer', 'album', 'year', 'total'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getPropertyKeysWithoutUndefined(obj: any): string[] {
+    if (!obj) {
+        return [];
+    }
     return Object.keys(obj).filter((key) => obj[key] !== undefined);
 }
 

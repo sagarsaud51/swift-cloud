@@ -30,7 +30,7 @@ export const getSongsByYear = async (year: string, ctx: ServerContext): Promise<
 
 export const getSongsByMonth = async (month: string, ctx: ServerContext, limit = 10): Promise<SongLists[]> => {
     const rows = await ctx.db.query({
-        query: `select id, song, total, year, album from song_view sv order by ${month} desc limit ${limit}`,
+        query: `select id, song, total, year, album, ${month} as monthCount from song_view sv order by ${month} desc limit ${limit}`,
         format: 'JSONEachRow',
     });
     const data: SongLists[] = await rows.json();

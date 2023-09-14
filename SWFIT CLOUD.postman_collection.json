@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "bdd3a25c-1960-4d8e-9fa8-4840638bcff7",
+		"name": "SWFIT CLOUD",
+		"description": "Swift cloud api definations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28432752"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "analytics",
+							"item": [
+								{
+									"name": "top-songs",
+									"item": [
+										{
+											"name": "Gets top songs",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/analytics/top-songs?limit=<number>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"analytics",
+														"top-songs"
+													],
+													"query": [
+														{
+															"key": "limit",
+															"value": "<number>",
+															"description": "limit for fetch size default (10)"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/analytics/top-songs?limit=<number>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"analytics",
+																"top-songs"
+															],
+															"query": [
+																{
+																	"key": "limit",
+																	"value": "<number>",
+																	"description": "limit for fetch size default (10)"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<string>\",\n  \"song\": \"<string>\",\n  \"album\": \"<string>\",\n  \"year\": \"<string>\",\n  \"total\": \"<number>\"\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/analytics/top-songs?limit=<number>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"analytics",
+																"top-songs"
+															],
+															"query": [
+																{
+																	"key": "limit",
+																	"value": "<number>",
+																	"description": "limit for fetch size default (10)"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"value\": \"reference $components/schemas/ErrorResponse not found in the OpenAPI spec\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "year",
+									"item": [
+										{
+											"name": "{year}",
+											"item": [
+												{
+													"name": "Gets songs by year",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/analytics/year/:year",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"analytics",
+																"year",
+																":year"
+															],
+															"variable": [
+																{
+																	"key": "year",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/analytics/year/:year",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"analytics",
+																		"year",
+																		":year"
+																	],
+																	"variable": [
+																		{
+																			"key": "year"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"id\": \"<string>\",\n  \"song\": \"<string>\",\n  \"album\": \"<string>\",\n  \"year\": \"<string>\",\n  \"total\": \"<number>\"\n}"
+														},
+														{
+															"name": "Internal Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/analytics/year/:year",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"analytics",
+																		"year",
+																		":year"
+																	],
+																	"variable": [
+																		{
+																			"key": "year"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"value\": \"reference $components/schemas/ErrorResponse not found in the OpenAPI spec\"\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "month",
+									"item": [
+										{
+											"name": "{month}",
+											"item": [
+												{
+													"name": "Gets songs stats by month",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/analytics/month/:month",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"analytics",
+																"month",
+																":month"
+															],
+															"variable": [
+																{
+																	"key": "month",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/analytics/month/:month",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"analytics",
+																		"month",
+																		":month"
+																	],
+																	"variable": [
+																		{
+																			"key": "month"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"id\": \"<string>\",\n  \"song\": \"<string>\",\n  \"album\": \"<string>\",\n  \"year\": \"<string>\",\n  \"total\": \"<number>\",\n  \"monthCount\": \"<number>\"\n}"
+														},
+														{
+															"name": "Internal Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/analytics/month/:month",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"analytics",
+																		"month",
+																		":month"
+																	],
+																	"variable": [
+																		{
+																			"key": "month"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"value\": \"reference $components/schemas/ErrorResponse not found in the OpenAPI spec\"\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "songs",
+							"item": [
+								{
+									"name": "song",
+									"item": [
+										{
+											"name": "{id}",
+											"item": [
+												{
+													"name": "Gets song by ID",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/songs/song/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"songs",
+																"song",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/songs/song/:id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"songs",
+																		"song",
+																		":id"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"id\": \"<string>\",\n  \"song\": \"<string>\",\n  \"artist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"writer\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"album\": \"<string>\",\n  \"year\": \"<string>\",\n  \"june\": \"<number>\",\n  \"july\": \"<number>\",\n  \"august\": \"<number>\",\n  \"total\": \"<number>\"\n}"
+														},
+														{
+															"name": "Internal Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/songs/song/:id",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"songs",
+																		"song",
+																		":id"
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"value\": \"reference $components/schemas/ErrorResponse not found in the OpenAPI spec\"\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Gets all song with filter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/songs?id=<UUID>&song=<string>&artist=<string>&writer=<string>&album=<string>&year=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"songs"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<UUID>",
+													"description": "Song ID"
+												},
+												{
+													"key": "song",
+													"value": "<string>",
+													"description": "Song name"
+												},
+												{
+													"key": "artist",
+													"value": "<string>",
+													"description": "artist name"
+												},
+												{
+													"key": "writer",
+													"value": "<string>",
+													"description": "writer name"
+												},
+												{
+													"key": "album",
+													"value": "<string>",
+													"description": "album name"
+												},
+												{
+													"key": "year",
+													"value": "<string>",
+													"description": "year"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/songs?id=<UUID>&song=<string>&artist=<string>&writer=<string>&album=<string>&year=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"songs"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<UUID>",
+															"description": "Song ID"
+														},
+														{
+															"key": "song",
+															"value": "<string>",
+															"description": "Song name"
+														},
+														{
+															"key": "artist",
+															"value": "<string>",
+															"description": "artist name"
+														},
+														{
+															"key": "writer",
+															"value": "<string>",
+															"description": "writer name"
+														},
+														{
+															"key": "album",
+															"value": "<string>",
+															"description": "album name"
+														},
+														{
+															"key": "year",
+															"value": "<string>",
+															"description": "year"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<string>\",\n    \"song\": \"<string>\",\n    \"artist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"writer\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"album\": \"<string>\",\n    \"year\": \"<string>\",\n    \"june\": \"<number>\",\n    \"july\": \"<number>\",\n    \"august\": \"<number>\",\n    \"total\": \"<number>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"song\": \"<string>\",\n    \"artist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"writer\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"album\": \"<string>\",\n    \"year\": \"<string>\",\n    \"june\": \"<number>\",\n    \"july\": \"<number>\",\n    \"august\": \"<number>\",\n    \"total\": \"<number>\"\n  }\n]"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/songs?id=<UUID>&song=<string>&artist=<string>&writer=<string>&album=<string>&year=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"songs"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<UUID>",
+															"description": "Song ID"
+														},
+														{
+															"key": "song",
+															"value": "<string>",
+															"description": "Song name"
+														},
+														{
+															"key": "artist",
+															"value": "<string>",
+															"description": "artist name"
+														},
+														{
+															"key": "writer",
+															"value": "<string>",
+															"description": "writer name"
+														},
+														{
+															"key": "album",
+															"value": "<string>",
+															"description": "album name"
+														},
+														{
+															"key": "year",
+															"value": "<string>",
+															"description": "year"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"value\": \"reference $components/schemas/ErrorResponse not found in the OpenAPI spec\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/"
+		}
+	]
+}
